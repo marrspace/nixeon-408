@@ -20,3 +20,7 @@ __pycache__/
 # Dependensi 3D berat (three.js ~2MB) — di-serve dari CDN/local
 # kalau mau ikut: hapus baris di bawah
 # src/vendor/
+
+# screenshot verifikasi (artefak, bukan isi situs)
+docs/preview-*.png
+assets/imagen_*.png
