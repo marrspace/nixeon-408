@@ -13,7 +13,8 @@ lewat `min-width`. Animasi & sentuhan dirancang untuk Android dulu.
 - [x] **Fase 2.5** — mobile-first, animasi sentuh, no blue highlight
 - [x] **Fase 3** — maskot **3D** (`.obj`+`.mtl` via three.js) + animasi mikro
 - [x] **Fase 3.5** — rombak anti-slop (buang pola template SaaS) + section tqto
-- [ ] **Fase 4** — QA final + deploy Vercel
+- [x] **Fase 4** — partikel, diffusion, bloom, grain, animasi teks
+- [x] **Fase 5** — QA mobile/desktop + deploy
 
 ## Struktur
 
@@ -68,6 +69,18 @@ python3 -m http.server 8137 --bind 127.0.0.1
 - **Animasi maskot**: muncul saat di-scroll masuk, bereaksi saat disentuh
 - **Parallax halus** (hanya perangkat presisi, biar HP hemat baterai)
 - **Blok kode** bisa digeser + ada isyarat visual tepi
+
+## Efek hero (2D, tanpa library)
+
+- **Partikel** — canvas 2D murni, ~175 titik (HP: ~74), sebagian blob besar untuk kedalaman
+- **Diffusion** — mask radial: potret larut ke latar, **tanpa kartu/kotak**
+- **Bloom** — 4 lapis radial-gradient + `blur(44px)`, crimson + cyan
+- **Grain** — `feTurbulence` SVG beranimasi, `mix-blend-mode:overlay`
+- **Animasi teks** — wordmark dipecah per huruf, masuk berurutan; eyebrow blur-in
+- **Parallax** — potret & teks bergerak beda kecepatan (pointer)
+
+**Tanpa 3D.** Model 3D dicoba lalu dibatalkan karena hasilnya kurang bagus —
+2D + partikel memberi kesan lebih premium dan jauh lebih ringan.
 
 ## Catatan penting
 
