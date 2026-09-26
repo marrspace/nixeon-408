@@ -13,7 +13,7 @@
   --line-strong: rgba(255,255,255,.14);
 
   --ink:         #F2F0EB;
-  --ink-dim:     #A8A8B2;
+  --ink-dim:     #B4B4BE;
   --ink-faint:   #80808C;
 
   --accent:      #FF3D68;
@@ -90,11 +90,11 @@ p{ margin:0; }
 .blueprint{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,.022) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.022) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255,255,255,.038) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.038) 1px, transparent 1px);
   background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 100%);
-  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 100%);
+  mask-image:radial-gradient(ellipse 120% 95% at 50% 8%, #000 30%, transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 120% 95% at 50% 8%, #000 30%, transparent 100%);
 }
 
 /* ═══════════ NAV ═══════════ */
@@ -158,13 +158,18 @@ p{ margin:0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(2){ transform:translateY(-3px) rotate(-45deg); }
 
 /* ═══════════ HERO ═══════════ */
-.hero{ position:relative; z-index:1; padding:clamp(112px,17vh,168px) 0 clamp(56px,9vh,88px); }
+.hero{
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; justify-content:center;
+  min-height:100svh;                 /* isi layar — tidak menyisakan void */
+  padding:clamp(104px,15vh,150px) 0 clamp(40px,6vh,64px);
+}
 
 .hero-grid{
   display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);
-  gap:clamp(28px,4.5vw,60px) clamp(24px,4vw,56px);
-  align-items:start;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+  gap:clamp(30px,4vw,52px) clamp(26px,3.4vw,48px);
+  align-items:center;
 }
 
 .eyebrow{
@@ -186,14 +191,15 @@ p{ margin:0; }
 .wordmark{
   font-family:var(--f-serif);
   font-weight:400;
-  font-size:clamp(3.1rem,10.5vw,6.6rem);
-  line-height:.94;
-  letter-spacing:-.035em;
+  font-size:clamp(2.75rem,7.6vw,5.5rem);   /* dijaga 1 baris, tidak pecah */
+  line-height:.96;
+  letter-spacing:-.04em;
+  white-space:nowrap;
   margin-bottom:clamp(20px,2.6vw,30px);
   word-break:break-word;
 }
 .wm-name{ font-style:normal; }
-.wm-scheme{ color:var(--ink-dim); font-style:italic; }
+.wm-scheme{ color:var(--ink-dim); font-style:normal; letter-spacing:-.02em; }
 .wm-port{ color:var(--accent); font-style:italic; }
 
 /* daftar fakta ringkas di hero — mengisi kolom kiri, bukan ruang mati */
@@ -240,7 +246,7 @@ p{ margin:0; }
 .btn-lg{ padding:15px 26px; font-size:.94rem; width:100%; justify-content:center; }
 
 /* ── slot karakter ─────────────────────────────────────── */
-.hero-art{ display:flex; flex-direction:column; gap:12px; }
+.hero-term{ display:flex; flex-direction:column; gap:0; }
 
 .hud-corner.tl{ top:12px; left:12px;    border-top-width:1.5px; border-left-width:1.5px;  border-radius:5px 0 0 0; }
 .hud-corner.tr{ top:12px; right:12px;   border-top-width:1.5px; border-right-width:1.5px; border-radius:0 5px 0 0; }
@@ -334,8 +340,8 @@ p{ margin:0; }
 .f-credit a:active{ border-bottom-color:var(--accent); }
 
 /* ═══════════ REVEAL ═══════════ */
-.reveal{ opacity:0; transform:translateY(16px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
-.reveal.is-in{ opacity:1; transform:none; }
+
+
 
 /* ═══════════ RESPONSIVE — MOBILE FIRST ═══════════
    Aturan dasar = HP. Desktop ditambahkan lewat min-width.
@@ -361,7 +367,7 @@ html{ scroll-padding-top:74px; }
 
 .hero{ padding-top:clamp(96px,15vh,124px); }
 .hero-grid{ grid-template-columns:1fr; }
-.hero-art{ max-width:100%; }
+.hero-term{ max-width:100%; }
 
 .rm-step{ grid-template-columns:44px minmax(0,1fr); }
 
@@ -404,7 +410,6 @@ html{ scroll-padding-top:74px; }
 /* --- DESKTOP ≥981px --- */
 @media (min-width:981px){
   .hero-grid{ grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr); }
-  .hero-art{ max-width:400px; }
 
   .join-wrap{ grid-template-columns:minmax(0,1fr) minmax(0,.85fr); }
 
@@ -504,10 +509,10 @@ html{
     animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
   }
-  .reveal{ opacity:1; transform:none; }
+
 }
 
 @media print{
-  .nav,.blueprint,.hero-art{ display:none; }
+  .nav,.blueprint,.hero-term{ display:none; }
   body{ background:#fff; color:#000; }
 }
