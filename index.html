@@ -16,20 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="src/style.css" />
+<link rel="stylesheet" href="src/parts/hero-art.css" />
 <link rel="stylesheet" href="src/parts/editorial.css" />
-
-<!-- importmap: loader three.js memakai specifier 'three' & 'three/addons/*' -->
-<script type="importmap">
-{
-  "imports": {
-    "three": "./src/vendor/three.module.js",
-    "three/addons/": "./src/vendor/"
-  }
-}
-</script>
-
-<!-- Hero 3D: hanya jalan kalau WebGL tersedia. Kalau tidak, gambar 2D tetap tampil. -->
-<script type="module" src="src/hero3d.js"></script>
 </head>
 <body>
 
@@ -94,18 +82,23 @@
         </ul>
       </div>
 
-      <!-- Slot karakter: diisi di Fase 2 (2D) & Fase 3 (3D) -->
-      <div class="hero-art reveal" id="heroArt" role="img" aria-label="Karakter maskot nixeon 408">
+      <!-- Hero art: potret 2D + partikel + diffusion -->
+      <div class="hero-art reveal" id="heroArt" role="img" aria-label="Maskot Unit 002 — komunitas JawaSkrip">
+        <div class="art-glow" aria-hidden="true"></div>
+        <canvas class="art-particles" id="artParticles" aria-hidden="true"></canvas>
+        <div class="art-grain" aria-hidden="true"></div>
+
         <div class="art-frame">
+          <div class="art-diffuse" aria-hidden="true"></div>
+          <img src="assets/hero-portrait.webp" alt="" class="art-figure"
+               width="900" height="1200" aria-hidden="true" />
           <div class="art-hud" aria-hidden="true">
             <span class="hud-corner tl"></span><span class="hud-corner tr"></span>
             <span class="hud-corner bl"></span><span class="hud-corner br"></span>
           </div>
-          <div class="art-slot" id="artSlot">
-            <img src="assets/hero-portrait.webp" alt="Unit 002 — maskot komunitas JawaSkrip" class="art-figure" width="900" height="1200" />
-          </div>
         </div>
-        <p class="art-caption">MASKOT · <span class="mono">nixeon://408</span></p>
+
+        <p class="art-caption">MASKOT · <span class="mono">UNIT&nbsp;002</span></p>
       </div>
 
       <div class="spec-line reveal">
@@ -399,5 +392,6 @@ sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-st
 </footer>
 
 <script src="src/main.js"></script>
+<script src="src/particles.js"></script>
 </body>
 </html>
