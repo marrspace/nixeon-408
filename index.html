@@ -16,6 +16,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="src/style.css" />
+<link rel="stylesheet" href="src/parts/editorial.css" />
+
+<!-- importmap: loader three.js memakai specifier 'three' & 'three/addons/*' -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "./src/vendor/three.module.js",
+    "three/addons/": "./src/vendor/"
+  }
+}
+</script>
+
+<!-- Hero 3D: hanya jalan kalau WebGL tersedia. Kalau tidak, gambar 2D tetap tampil. -->
+<script type="module" src="src/hero3d.js"></script>
 </head>
 <body>
 
@@ -94,170 +108,138 @@
         <p class="art-caption">MASKOT · <span class="mono">nixeon://408</span></p>
       </div>
 
-      <dl class="meta-table reveal">
-        <div><dt>Fokus</dt><dd>Bot · AI · Tools</dd></div>
-        <div><dt>Stack</dt><dd>Node.js · Baileys</dd></div>
-        <div><dt>Status</dt><dd><span class="ok">Terbuka untuk semua</span></dd></div>
-        <div><dt>Bahasa</dt><dd>Indonesia</dd></div>
-      </dl>
+      <div class="spec-line reveal">
+        <p class="spec-lead">
+          Grup belajar bot WhatsApp &amp; AI — <span class="hl-mono">Baileys</span> +
+          <span class="hl-mono">Node.js</span>. Gratis, terbuka, tanpa jualan kelas.
+        </p>
+        <ul class="spec-facts">
+          <li><span class="mono">fokus</span> bot · ai · tools</li>
+          <li><span class="mono">stack</span> node.js · baileys</li>
+          <li><span class="mono">basis</span> indonesia</li>
+        </ul>
+      </div>
 
     </div>
   </section>
 
   <!-- ══════════════ TENTANG ══════════════ -->
   <section class="section" id="tentang">
-    <div class="wrap">
-      <header class="sec-head reveal">
-        <span class="sec-num mono">01</span>
-        <h2 class="sec-title">Tentang <em>JawaSkrip</em></h2>
-      </header>
+    <div class="wrap about-wrap">
 
-      <div class="about-grid">
+      <div class="about-aside reveal">
+        <span class="sec-num mono">01</span>
+        <h2 class="about-title">Tentang JawaSkrip</h2>
+      </div>
+
+      <div class="about-body">
         <p class="about-lede reveal">
           JawaSkrip itu grup WhatsApp buat belajar bareng. Isinya orang-orang yang
           penasaran: gimana sih bikin bot WhatsApp yang jalan 24 jam? Kok bisa AI
           jawab otomatis di grup? Kenapa kode ini error padahal kemarin aman?
         </p>
 
-        <div class="about-points">
-          <article class="point reveal">
-            <h3><span class="mono">→</span> Belajar bot WhatsApp</h3>
-            <p>Dari pairing pertama sampai bot yang punya puluhan command. Library-nya <span class="hl-mono">Baileys</span>, bahasanya Node.js.</p>
-          </article>
-          <article class="point reveal">
-            <h3><span class="mono">→</span> Ngulik AI</h3>
-            <p>Nempelin model AI ke bot, bikin auto-reply pintar, ringkas chat, sampai bikin tool yang bisa mikir.</p>
-          </article>
-          <article class="point reveal">
-            <h3><span class="mono">→</span> Vibe coding</h3>
-            <p>Nulis kode dibantu AI, tapi tetap paham apa yang jalan. Ngobrol santai, hasil tetap serius.</p>
-          </article>
-          <article class="point reveal">
-            <h3><span class="mono">→</span> Tanya apa saja</h3>
-            <p>Error tengah malam, bingung struktur folder, atau cuma butuh temen nyoba ide — semua boleh.</p>
-          </article>
-        </div>
+        <ol class="about-list">
+          <li class="reveal">
+            <span class="al-n mono">→</span>
+            <div>
+              <h3>Belajar bot WhatsApp</h3>
+              <p>Dari pairing pertama sampai bot yang punya puluhan command. Library-nya <span class="hl-mono">Baileys</span>, bahasanya Node.js.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="al-n mono">→</span>
+            <div>
+              <h3>Ngulik AI</h3>
+              <p>Nempelin model AI ke bot, bikin auto-reply pintar, ringkas chat, sampai bikin tool yang bisa mikir.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="al-n mono">→</span>
+            <div>
+              <h3>Vibe coding</h3>
+              <p>Nulis kode dibantu AI, tapi tetap paham apa yang jalan. Ngobrol santai, hasil tetap serius.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="al-n mono">→</span>
+            <div>
+              <h3>Tanya apa saja</h3>
+              <p>Error tengah malam, bingung struktur folder, atau cuma butuh temen nyoba ide — semua boleh.</p>
+            </div>
+          </li>
+        </ol>
       </div>
+
     </div>
   </section>
 
   <!-- ══════════════ PROJECTS ══════════════ -->
-  <section class="section section-alt" id="projects">
+  <section class="section" id="projects">
     <div class="wrap">
-      <header class="sec-head reveal">
+
+      <header class="proj-head reveal">
         <span class="sec-num mono">02</span>
-        <h2 class="sec-title">Projects &amp; <em>Tools</em></h2>
-        <p class="sec-sub">Yang dibikin — dan kadang dipakai — sama anggota grup.</p>
+        <h2 class="proj-title">Projects <span class="amp">&amp;</span> Tools</h2>
+        <p class="proj-sub">
+          Yang dibikin — dan kadang dipakai — sama anggota grup.
+        </p>
       </header>
 
-      <!-- Project unggulan -->
-      <article class="proj-feature reveal">
-        <div class="pf-body">
-          <div class="pf-tags">
-            <span class="tag tag-accent">FEATURED</span>
-            <span class="tag">Baileys</span>
-            <span class="tag">Node.js</span>
-          </div>
-          <h3 class="pf-title">Yowtech / Base</h3>
-          <p class="pf-desc">
+      <div class="proj-list">
+
+        <article class="pl-row pl-row-featured reveal">
+          <p class="pl-kicker mono">01 / featured / baileys</p>
+          <h3 class="pl-title">Yowtech / Base</h3>
+          <p class="pl-desc">
             Base Baileys tingkat lanjut — fondasi bot WhatsApp yang rapi, siap
             dipakai ulang untuk project baru. Tinggal fork, isi
             <span class="hl-mono">config</span>, jalan.
           </p>
-          <ul class="pf-list">
-            <li>Struktur modular — enak dibaca, enak dikembangin</li>
-            <li>Sudah termasuk handler &amp; utils dasar</li>
-            <li>Open source — bebas dipelajari dan dimodifikasi</li>
-          </ul>
-          <div class="pf-foot">
-            <span class="mono dim">by Yowtech · Node.js · Baileys</span>
-            <a class="link-arrow" href="https://github.com/Yowtech/Base"
-               target="_blank" rel="noopener noreferrer">
-              Lihat di GitHub <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-        <div class="pf-visual" aria-hidden="true">
-          <pre class="code-mini"><code><span class="c-com">// base baileys — yowtech/base</span>
-<span class="c-key">const</span> sock = <span class="c-fn">makeWASocket</span>({
-  <span class="c-prop">auth</span>: state,
-  <span class="c-prop">printQR</span>: <span class="c-bool">false</span>
-})
-
-sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-str">'messages.upsert'</span>, <span class="c-key">async</span> ({ messages }) =&gt; {
-  <span class="c-com">// plugin jalan di sini</span>
-  <span class="c-key">await</span> <span class="c-fn">runPlugins</span>(messages[<span class="c-num">0</span>])
-})</code></pre>
-        </div>
-      </article>
-
-      <!-- Grid project lain -->
-      <div class="proj-grid">
-
-        <article class="proj-card reveal">
-          <div class="pc-top">
-            <span class="pc-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20"><path d="M4 4h5v5H4zM11 11h5v5h-5zM11 4h5v5h-5zM4 11h5v5H4z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
-            </span>
-            <span class="mono pc-id">TOOL</span>
-          </div>
-          <h3>Sticker Forge</h3>
-          <p>Ubah gambar &amp; video jadi sticker <span class="hl-mono">WebP</span> otomatis. Resize, crop, dan background transparan sekaligus.</p>
-          <span class="pc-stack mono">Node.js · sharp</span>
+          <p class="pl-meta mono">modular · handler + utils · open source</p>
+          <a class="pl-link" href="https://github.com/Yowtech/Base"
+             target="_blank" rel="noopener noreferrer">
+            Lihat repo <span aria-hidden="true">↗</span>
+          </a>
         </article>
 
-        <article class="proj-card reveal">
-          <div class="pc-top">
-            <span class="pc-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20"><path d="M3 5h14M3 10h9M3 15h12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            </span>
-            <span class="mono pc-id">AI</span>
-          </div>
-          <h3>Ringkas AI</h3>
-          <p>Chat grup 500 pesan jadi 5 poin penting. Bisa juga ringkas artikel dari link yang dikirim anggota.</p>
-          <span class="pc-stack mono">Node.js · LLM API</span>
+        <article class="pl-row reveal">
+          <p class="pl-kicker mono">02 / tools</p>
+          <h3 class="pl-title">Sticker &amp; Media Kit</h3>
+          <p class="pl-desc">
+            Kumpulan command harian: bikin sticker dari gambar, ambil audio,
+            ringkas link. Semua nempel di satu handler yang gampang ditambah.
+          </p>
+          <p class="pl-meta mono">gambar/video → webp · mp3 · dipakai harian</p>
+          <a class="pl-link" href="#gabung">
+            Tanya di grup <span aria-hidden="true">↗</span>
+          </a>
         </article>
 
-        <article class="proj-card reveal">
-          <div class="pc-top">
-            <span class="pc-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M7 7h6v6H7z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
-            </span>
-            <span class="mono pc-id">TOOL</span>
-          </div>
-          <h3>Pairing Helper</h3>
-          <p>Bikin pairing code &amp; QR tanpa ribet. Cocok buat yang baru pertama kali setup bot.</p>
-          <span class="pc-stack mono">Node.js · Baileys</span>
+        <article class="pl-row reveal">
+          <p class="pl-kicker mono">03 / ai</p>
+          <h3 class="pl-title">Auto-reply Pintar</h3>
+          <p class="pl-desc">
+            Bot yang jawab sesuai konteks percakapan — bukan template kaku.
+            Sambung ke model AI, kasih aturan grup, biar jawabannya nyambung.
+          </p>
+          <p class="pl-meta mono">konteks per-chat · aturan bisa diatur</p>
+          <a class="pl-link" href="#gabung">
+            Kolaborasi <span aria-hidden="true">↗</span>
+          </a>
         </article>
 
-        <article class="proj-card reveal">
-          <div class="pc-top">
-            <span class="pc-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20"><path d="M4 15V6l6-3 6 3v9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M8 15v-4h4v4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
-            </span>
-            <span class="mono pc-id">STARTER</span>
-          </div>
-          <h3>Vibe Starter</h3>
-          <p>Template project Node.js siap pakai — struktur folder rapi, config jelas, langsung bisa dikembangkan.</p>
-          <span class="pc-stack mono">Node.js · dotenv</span>
-        </article>
-
-        <article class="proj-card reveal">
-          <div class="pc-top">
-            <span class="pc-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20"><path d="M6 3h5l4 4v10H6z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M11 3v4h4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-            </span>
-            <span class="mono pc-id">REF</span>
-          </div>
-          <h3>Script Vault</h3>
-          <p>Kumpulan snippet yang paling sering dipakai grup: handler, middleware, koneksi DB, kirim media.</p>
-          <span class="pc-stack mono">Snippet · Docs</span>
-        </article>
-
-        <article class="proj-card proj-card-cta reveal">
-          <h3>Punya project?</h3>
-          <p>Kirim ke grup, kita bahas bareng. Yang kecil pun boleh — asal jalan.</p>
-          <a class="link-arrow" href="#gabung">Kirim ke grup <span aria-hidden="true">→</span></a>
+        <article class="pl-row pl-row-open reveal">
+          <p class="pl-kicker mono">04 / slot kosong</p>
+          <h3 class="pl-title">Project kamu</h3>
+          <p class="pl-desc">
+            Ini tempatnya. Bikin apa saja — bot receh, script iseng, tool serius —
+            lalu ceritakan di grup. Yang rapi tampil di halaman ini.
+          </p>
+          <p class="pl-meta mono">slot terbuka · kirim ke grup</p>
+          <a class="pl-link pl-link-strong" href="#gabung">
+            Masuk grup <span aria-hidden="true">↗</span>
+          </a>
         </article>
 
       </div>
@@ -267,9 +249,9 @@ sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-st
   <!-- ══════════════ BELAJAR ══════════════ -->
   <section class="section" id="belajar">
     <div class="wrap">
-      <header class="sec-head reveal">
+      <header class="proj-head reveal">
         <span class="sec-num mono">03</span>
-        <h2 class="sec-title">Jalur <em>belajar</em></h2>
+        <h2 class="proj-title">Jalur belajar</h2>
         <p class="sec-sub">Urutan yang paling masuk akal — dari nol sampai bot jalan sendiri.</p>
       </header>
 
@@ -361,6 +343,39 @@ sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-st
     </div>
   </section>
 
+
+  <!-- ══════════════ THANK YOU TO ══════════════ -->
+  <section class="section tqto" id="tqto">
+    <div class="wrap tqto-wrap">
+
+      <div class="tqto-head reveal">
+        <span class="sec-num mono">05</span>
+        <h2 class="tqto-title">Terima kasih</h2>
+        <p class="tqto-sub">Yang bikin ini bisa jalan.</p>
+      </div>
+
+      <ul class="tqto-list">
+        <li class="reveal">
+          <p class="tq-name">marrspace</p>
+          <p class="tq-role mono">arah desain &amp; base portfolio</p>
+          <a class="tq-link" href="https://github.com/marrspace"
+             target="_blank" rel="noopener noreferrer">github.com/marrspace <span aria-hidden="true">↗</span></a>
+        </li>
+        <li class="reveal">
+          <p class="tq-name">Yowtech</p>
+          <p class="tq-role mono">Base Baileys — fondasi bot</p>
+          <a class="tq-link" href="https://github.com/Yowtech/Base"
+             target="_blank" rel="noopener noreferrer">github.com/Yowtech/Base <span aria-hidden="true">↗</span></a>
+        </li>
+      </ul>
+
+      <p class="tqto-note mono reveal">
+        Dan semua anggota JawaSkrip yang nyoba, nanya, dan bikin error bareng.
+      </p>
+
+    </div>
+  </section>
+
 </main>
 
 <!-- ══════════════ FOOTER ══════════════ -->
@@ -377,6 +392,7 @@ sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-st
       <a href="#projects">Projects</a>
       <a href="#belajar">Belajar</a>
       <a href="#gabung">Gabung</a>
+      <a href="#tqto">Thanks</a>
     </nav>
     <p class="f-meta mono">Dibangun bareng · 2026</p>
   </div>

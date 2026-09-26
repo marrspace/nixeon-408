@@ -16,3 +16,7 @@ Thumbs.db
 # Python
 __pycache__/
 *.py[cod]
+
+# Dependensi 3D berat (three.js ~2MB) — di-serve dari CDN/local
+# kalau mau ikut: hapus baris di bawah
+# src/vendor/
