@@ -1,0 +1,18 @@
+# Hasil generate mentah — sumber ada di docs/process-hero.py
+# (versi .webp yang dioptimasi tetap di assets/)
+assets/imagen_*.png
+assets/hero-*.png
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Vercel
+.vercel
+
+# Python
+__pycache__/
+*.py[cod]

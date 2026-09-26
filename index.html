@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>nixeon://408 — Portfolio JawaSkrip ⚙️</title>
+<meta name="description" content="Portfolio komunitas JawaSkrip — tempat belajar bikin bot WhatsApp pakai Baileys, ngulik AI, dan bikin tools yang beneran dipakai." />
+<meta name="theme-color" content="#0A0A0C" />
+<meta property="og:title" content="nixeon://408 — Portfolio JawaSkrip" />
+<meta property="og:description" content="Belajar bot WhatsApp, AI, dan tools. Bareng-bareng." />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0C'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23FF3D68'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Lewati ke konten</a>
+<div class="blueprint" aria-hidden="true"></div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="nixeon://408 — ke atas">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name"><span class="scheme">nixeon:</span><span class="port">//408</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#projects">Projects</a>
+      <a href="#belajar">Belajar</a>
+      <a href="#gabung" class="nav-cta">Gabung grup</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Buka menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <p class="eyebrow reveal">
+          <span class="dot-live" aria-hidden="true"></span>
+          GRUP WHATSAPP · BOT &amp; VIBE CODING
+        </p>
+
+        <h1 class="wordmark reveal">
+          <span class="wm-name">nixeon</span><span class="wm-scheme">://</span><span class="wm-port">408</span>
+        </h1>
+
+        <p class="hero-lede reveal">
+          Portfolio komunitas <strong>JawaSkrip&nbsp;⚙️</strong> — tempat belajar bikin bot WhatsApp
+          pakai <span class="hl-mono">Baileys</span>, ngulik AI, dan bikin tools
+          yang beneran dipakai orang. Bukan tempat jualan kelas.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#projects">
+            Lihat projects
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#gabung">Gabung grup WhatsApp</a>
+        </div>
+
+        <ul class="hero-facts reveal">
+          <li><span class="mono">01</span> Belajar bot WhatsApp pakai <span class="hl-mono">Baileys</span></li>
+          <li><span class="mono">02</span> Ngulik AI &amp; vibe coding bareng-bareng</li>
+          <li><span class="mono">03</span> Bikin tools yang beneran dipakai orang</li>
+        </ul>
+      </div>
+
+      <!-- Slot karakter: diisi di Fase 2 (2D) & Fase 3 (3D) -->
+      <div class="hero-art reveal" id="heroArt" role="img" aria-label="Karakter maskot nixeon 408">
+        <div class="art-frame">
+          <div class="art-hud" aria-hidden="true">
+            <span class="hud-corner tl"></span><span class="hud-corner tr"></span>
+            <span class="hud-corner bl"></span><span class="hud-corner br"></span>
+          </div>
+          <div class="art-slot" id="artSlot">
+            <img src="assets/hero-portrait.webp" alt="Unit 002 — maskot komunitas JawaSkrip" class="art-figure" width="900" height="1200" />
+          </div>
+        </div>
+        <p class="art-caption">MASKOT · <span class="mono">nixeon://408</span></p>
+      </div>
+
+      <dl class="meta-table reveal">
+        <div><dt>Fokus</dt><dd>Bot · AI · Tools</dd></div>
+        <div><dt>Stack</dt><dd>Node.js · Baileys</dd></div>
+        <div><dt>Status</dt><dd><span class="ok">Terbuka untuk semua</span></dd></div>
+        <div><dt>Bahasa</dt><dd>Indonesia</dd></div>
+      </dl>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ TENTANG ══════════════ -->
+  <section class="section" id="tentang">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="sec-num mono">01</span>
+        <h2 class="sec-title">Tentang <em>JawaSkrip</em></h2>
+      </header>
+
+      <div class="about-grid">
+        <p class="about-lede reveal">
+          JawaSkrip itu grup WhatsApp buat belajar bareng. Isinya orang-orang yang
+          penasaran: gimana sih bikin bot WhatsApp yang jalan 24 jam? Kok bisa AI
+          jawab otomatis di grup? Kenapa kode ini error padahal kemarin aman?
+        </p>
+
+        <div class="about-points">
+          <article class="point reveal">
+            <h3><span class="mono">→</span> Belajar bot WhatsApp</h3>
+            <p>Dari pairing pertama sampai bot yang punya puluhan command. Library-nya <span class="hl-mono">Baileys</span>, bahasanya Node.js.</p>
+          </article>
+          <article class="point reveal">
+            <h3><span class="mono">→</span> Ngulik AI</h3>
+            <p>Nempelin model AI ke bot, bikin auto-reply pintar, ringkas chat, sampai bikin tool yang bisa mikir.</p>
+          </article>
+          <article class="point reveal">
+            <h3><span class="mono">→</span> Vibe coding</h3>
+            <p>Nulis kode dibantu AI, tapi tetap paham apa yang jalan. Ngobrol santai, hasil tetap serius.</p>
+          </article>
+          <article class="point reveal">
+            <h3><span class="mono">→</span> Tanya apa saja</h3>
+            <p>Error tengah malam, bingung struktur folder, atau cuma butuh temen nyoba ide — semua boleh.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROJECTS ══════════════ -->
+  <section class="section section-alt" id="projects">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="sec-num mono">02</span>
+        <h2 class="sec-title">Projects &amp; <em>Tools</em></h2>
+        <p class="sec-sub">Yang dibikin — dan kadang dipakai — sama anggota grup.</p>
+      </header>
+
+      <!-- Project unggulan -->
+      <article class="proj-feature reveal">
+        <div class="pf-body">
+          <div class="pf-tags">
+            <span class="tag tag-accent">FEATURED</span>
+            <span class="tag">Baileys</span>
+            <span class="tag">Node.js</span>
+          </div>
+          <h3 class="pf-title">Yowtech / Base</h3>
+          <p class="pf-desc">
+            Base Baileys tingkat lanjut — fondasi bot WhatsApp yang rapi, siap
+            dipakai ulang untuk project baru. Tinggal fork, isi
+            <span class="hl-mono">config</span>, jalan.
+          </p>
+          <ul class="pf-list">
+            <li>Struktur modular — enak dibaca, enak dikembangin</li>
+            <li>Sudah termasuk handler &amp; utils dasar</li>
+            <li>Open source — bebas dipelajari dan dimodifikasi</li>
+          </ul>
+          <div class="pf-foot">
+            <span class="mono dim">by Yowtech · Node.js · Baileys</span>
+            <a class="link-arrow" href="https://github.com/Yowtech/Base"
+               target="_blank" rel="noopener noreferrer">
+              Lihat di GitHub <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="pf-visual" aria-hidden="true">
+          <pre class="code-mini"><code><span class="c-com">// base baileys — yowtech/base</span>
+<span class="c-key">const</span> sock = <span class="c-fn">makeWASocket</span>({
+  <span class="c-prop">auth</span>: state,
+  <span class="c-prop">printQR</span>: <span class="c-bool">false</span>
+})
+
+sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-str">'messages.upsert'</span>, <span class="c-key">async</span> ({ messages }) =&gt; {
+  <span class="c-com">// plugin jalan di sini</span>
+  <span class="c-key">await</span> <span class="c-fn">runPlugins</span>(messages[<span class="c-num">0</span>])
+})</code></pre>
+        </div>
+      </article>
+
+      <!-- Grid project lain -->
+      <div class="proj-grid">
+
+        <article class="proj-card reveal">
+          <div class="pc-top">
+            <span class="pc-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20"><path d="M4 4h5v5H4zM11 11h5v5h-5zM11 4h5v5h-5zM4 11h5v5H4z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+            <span class="mono pc-id">TOOL</span>
+          </div>
+          <h3>Sticker Forge</h3>
+          <p>Ubah gambar &amp; video jadi sticker <span class="hl-mono">WebP</span> otomatis. Resize, crop, dan background transparan sekaligus.</p>
+          <span class="pc-stack mono">Node.js · sharp</span>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="pc-top">
+            <span class="pc-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20"><path d="M3 5h14M3 10h9M3 15h12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </span>
+            <span class="mono pc-id">AI</span>
+          </div>
+          <h3>Ringkas AI</h3>
+          <p>Chat grup 500 pesan jadi 5 poin penting. Bisa juga ringkas artikel dari link yang dikirim anggota.</p>
+          <span class="pc-stack mono">Node.js · LLM API</span>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="pc-top">
+            <span class="pc-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M7 7h6v6H7z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+            <span class="mono pc-id">TOOL</span>
+          </div>
+          <h3>Pairing Helper</h3>
+          <p>Bikin pairing code &amp; QR tanpa ribet. Cocok buat yang baru pertama kali setup bot.</p>
+          <span class="pc-stack mono">Node.js · Baileys</span>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="pc-top">
+            <span class="pc-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20"><path d="M4 15V6l6-3 6 3v9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M8 15v-4h4v4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+            <span class="mono pc-id">STARTER</span>
+          </div>
+          <h3>Vibe Starter</h3>
+          <p>Template project Node.js siap pakai — struktur folder rapi, config jelas, langsung bisa dikembangkan.</p>
+          <span class="pc-stack mono">Node.js · dotenv</span>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="pc-top">
+            <span class="pc-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20"><path d="M6 3h5l4 4v10H6z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M11 3v4h4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="mono pc-id">REF</span>
+          </div>
+          <h3>Script Vault</h3>
+          <p>Kumpulan snippet yang paling sering dipakai grup: handler, middleware, koneksi DB, kirim media.</p>
+          <span class="pc-stack mono">Snippet · Docs</span>
+        </article>
+
+        <article class="proj-card proj-card-cta reveal">
+          <h3>Punya project?</h3>
+          <p>Kirim ke grup, kita bahas bareng. Yang kecil pun boleh — asal jalan.</p>
+          <a class="link-arrow" href="#gabung">Kirim ke grup <span aria-hidden="true">→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ BELAJAR ══════════════ -->
+  <section class="section" id="belajar">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="sec-num mono">03</span>
+        <h2 class="sec-title">Jalur <em>belajar</em></h2>
+        <p class="sec-sub">Urutan yang paling masuk akal — dari nol sampai bot jalan sendiri.</p>
+      </header>
+
+      <ol class="roadmap">
+        <li class="rm-step reveal">
+          <span class="rm-num mono">01</span>
+          <div class="rm-body">
+            <h3>Dasar Node.js</h3>
+            <p><span class="hl-mono">async/await</span>, module, dan cara baca error. Fondasi sebelum nyentuh bot.</p>
+          </div>
+        </li>
+        <li class="rm-step reveal">
+          <span class="rm-num mono">02</span>
+          <div class="rm-body">
+            <h3>Kenalan sama Baileys</h3>
+            <p>Koneksi, autentikasi, pairing code, dan baca event <span class="hl-mono">messages.upsert</span>.</p>
+          </div>
+        </li>
+        <li class="rm-step reveal">
+          <span class="rm-num mono">03</span>
+          <div class="rm-body">
+            <h3>Bikin fitur</h3>
+            <p>Command handler, sistem plugin, kirim &amp; terima media, simpan data ke database.</p>
+          </div>
+        </li>
+        <li class="rm-step reveal">
+          <span class="rm-num mono">04</span>
+          <div class="rm-body">
+            <h3>Tingkat lanjut</h3>
+            <p>Integrasi AI, deploy ke server, jaga bot tetap hidup, dan pantau error.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="snippet reveal">
+        <div class="sn-head">
+          <span class="mono sn-file">bot.js</span>
+          <span class="mono sn-note">Contoh paling dasar — bot balas pesan</span>
+        </div>
+        <pre class="code-block"><code><span class="c-key">import</span> makeWASocket, { useMultiFileAuthState } <span class="c-key">from</span> <span class="c-str">'baileys'</span>
+
+<span class="c-key">const</span> { state, saveCreds } = <span class="c-key">await</span> <span class="c-fn">useMultiFileAuthState</span>(<span class="c-str">'./session'</span>)
+<span class="c-key">const</span> sock = <span class="c-fn">makeWASocket</span>({ auth: state, printQR: <span class="c-bool">false</span> })
+
+sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-str">'creds.update'</span>, saveCreds)
+
+sock.<span class="c-fn">ev</span>.<span class="c-fn">on</span>(<span class="c-str">'messages.upsert'</span>, <span class="c-key">async</span> ({ messages, type }) =&gt; {
+  <span class="c-key">if</span> (type !== <span class="c-str">'notify'</span>) <span class="c-key">return</span>
+
+  <span class="c-key">const</span> msg = messages[<span class="c-num">0</span>]
+  <span class="c-key">const</span> text = msg.message?.conversation
+  <span class="c-key">if</span> (text === <span class="c-str">'!ping'</span>) {
+    <span class="c-key">await</span> sock.<span class="c-fn">sendMessage</span>(msg.key.remoteJid, { text: <span class="c-str">'pong 🏓'</span> })
+  }
+})</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ GABUNG ══════════════ -->
+  <section class="section join" id="gabung">
+    <div class="wrap join-wrap">
+      <div class="join-copy reveal">
+        <span class="sec-num mono">04</span>
+        <h2 class="join-title">Masuk ke <em>grup</em></h2>
+        <p class="join-lede">
+          Gratis, tanpa syarat. Bawa laptop atau HP — yang penting mau nyoba.
+          Kalau bingung mulai dari mana, tanya saja di grup.
+        </p>
+        <ul class="join-facts">
+          <li><span class="mono">01</span> Belajar bot WhatsApp &amp; AI</li>
+          <li><span class="mono">02</span> Tanya error, dibantu bareng</li>
+          <li><span class="mono">03</span> Showcase project anggota</li>
+        </ul>
+      </div>
+
+      <div class="join-card reveal">
+        <p class="mono jc-label">UNDANGAN GRUP</p>
+        <p class="jc-name">JawaSkrip <span aria-hidden="true">⚙️</span></p>
+        <p class="jc-desc">Klik tombol di bawah, kamu langsung diarahkan ke WhatsApp.</p>
+        <a class="btn btn-primary btn-lg"
+           href="https://chat.whatsapp.com/LApybH1q6hfG1Rqp56DKv8?s=cl&amp;p=a&amp;mlu=4"
+           target="_blank" rel="noopener noreferrer">
+          Buka grup WhatsApp
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="jc-note mono">Buka di aplikasi WhatsApp · mobile &amp; desktop</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="f-brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name"><span class="scheme">nixeon:</span><span class="port">//408</span></span>
+      <p class="f-tag">Portfolio komunitas JawaSkrip ⚙️</p>
+      <p class="f-credit mono">Base Baileys oleh <a href="https://github.com/Yowtech/Base" target="_blank" rel="noopener noreferrer">Yowtech</a></p>
+    </div>
+    <nav class="f-nav" aria-label="Navigasi footer">
+      <a href="#tentang">Tentang</a>
+      <a href="#projects">Projects</a>
+      <a href="#belajar">Belajar</a>
+      <a href="#gabung">Gabung</a>
+    </nav>
+    <p class="f-meta mono">Dibangun bareng · 2026</p>
+  </div>
+</footer>
+
+<script src="src/main.js"></script>
+</body>
+</html>
