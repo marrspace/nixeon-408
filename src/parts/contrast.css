@@ -1,0 +1,166 @@
+/* ═══════════════════════════════════════════════════════════
+   KONTRAS FINAL — dimuat PALING AKHIR, sengaja.
+   Alasan file terpisah: satu daftar selector yang panjang di
+   style.css membuat browser membatalkan SELURUH rule kalau ada
+   satu selector bermasalah. Di sini satu selector per rule,
+   jadi tidak ada yang bisa hilang.
+
+   Aturan: acid green & hot pink itu warna TERANG -> hanya LATAR.
+   Sebagai TEKS di atas kertas, pakai --pink-ink (pink gelap).
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── brand: "//408" ada di nav & footer (keduanya blok acid) ── */
+.nav .port,
+.nav .scheme,
+.footer .port,
+.footer .scheme {
+  color: var(--ink);
+}
+
+/* ── CTA nav: blok ink + teks acid (dulu ink-on-ink, cr=1) ──
+   !important dipakai SENGAJA: rule seperti `.nav a` (0,1,1) mengalahkan
+   `.nav-cta` (0,1,0) walau dimuat belakangan — spesifisitas > urutan.
+   File ini adalah lapisan final, jadi paksa menang. */
+.nav .nav-cta {
+  background: var(--ink) !important;
+  color: var(--acid) !important;
+  border-color: var(--ink) !important;
+}
+.nav .nav-cta:hover {
+  background: var(--pink) !important;
+  color: #fff !important;
+}
+
+/* ── chip kode: acid + tinta (cr ~15). Bukan pink+putih (cr 3.5). ── */
+.hl-mono,
+.hl-mono * {
+  background: var(--acid) !important;
+  color: var(--ink) !important;
+  border-color: var(--ink) !important;
+}
+
+/* ── angka mono di strip fakta & join (di atas kertas) ──
+   `.join-facts li .mono` (0,2,1) menang atas `.join-facts .mono` (0,2,0). */
+.hero-facts li .mono,
+.spec-facts li .mono,
+.join-facts li .mono {
+  color: var(--pink-ink) !important;
+}
+
+/* ── nomor section & penanda kecil ── */
+.sec-num, .al-n, .rm-num, .sn-file, .jc-label,
+.hero-foot .sc-text {
+  color: var(--pink-ink) !important;
+}
+
+/* ── link teks aksen ── */
+.pl-link,
+.tq-link,
+.f-credit a {
+  color: var(--pink-ink);
+}
+
+/* ── terminal: prompt & panah ── */
+.term-body .t-prompt,
+.term-body .t-arrow,
+.term-body .t-ok {
+  color: var(--pink-ink);
+}
+
+/* ── tombol ── */
+.btn-primary {
+  background: var(--pink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.btn-ghost {
+  background: var(--acid);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--acid);
+}
+
+/* ── judul project yang featured: tetap tinta di atas acid ── */
+.pl-row-featured .pl-title,
+.pl-row-featured .pl-desc,
+.pl-row-featured .pl-meta,
+.pl-row-featured .pl-kicker,
+.pl-row-featured .pl-num,
+.pl-row-featured .pl-link {
+  color: var(--ink);
+}
+.pl-row-featured .pl-link {
+  border-bottom-color: var(--ink);
+}
+
+
+/* ═══════════ SHADOW: MOBILE-FIRST ═══════════
+   Shadow keras 9px tidak punya ruang di layar HP -> keluar viewport.
+   Jadi default (HP) kecil; desktop dibesarkan lewat min-width.
+   Ini urutan yang benar untuk mobile-first. */
+:root{
+  --shadow:     5px 5px 0 var(--pink);
+  --shadow-ink: 5px 5px 0 var(--ink);
+}
+.hero-term, .join-card, .code-block{ box-shadow: 5px 5px 0 var(--pink); }
+.btn:hover{ box-shadow: 5px 5px 0 var(--ink); }
+
+@media (min-width:600px){
+  :root{
+    --shadow:     9px 9px 0 var(--pink);
+    --shadow-ink: 9px 9px 0 var(--ink);
+  }
+  .hero-term, .join-card, .code-block{ box-shadow: 9px 9px 0 var(--pink); }
+  .btn:hover{ box-shadow: 9px 9px 0 var(--ink); }
+}
+
+
+/* ═══════════ PADDING TEPI: MOBILE-FIRST ═══════════
+   --pad mobile 10-14px terlalu sempit: (a) terasa tidak mobile-first,
+   (b) shadow keras tidak punya ruang sehingga keluar viewport.
+   Dinaikkan supaya konten lega + shadow utuh. */
+.wrap{ padding-inline: 18px; }
+@media (min-width:480px){ .wrap{ padding-inline: 22px; } }
+@media (min-width:768px){ .wrap{ padding-inline: 32px; } }
+@media (min-width:1200px){ .wrap{ padding-inline: 56px; } }
+
+
+/* ═══════════ KONSISTENSI NEOBRUTALISM ═══════════
+   Semua elemen harus ikut aturan yang sama: border 3px ink + radius 0.
+   Sebelumnya tag, hr, dan beberapa pembatas pakai garis tipis/soft. */
+.tag, .spec-facts li, .join-facts li{
+  border: var(--bw) solid var(--ink) !important;
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+.spec-line{ border-top: var(--bw) solid var(--ink) !important; }
+.spec-facts{ gap: 8px !important; }
+.hero-foot{ border-top: var(--bw) solid var(--ink) !important; margin-top: 20px !important; padding-top: 16px !important; }
+.about-list li, .pl-row, .rm-step, .tqto-item{ border-color: var(--ink) !important; }
+.nav-cta{ box-shadow: 3px 3px 0 var(--pink) !important; }
+
+
+/* ═══════════ TEKS DI ATAS PINK HARUS HITAM ═══════════
+   Teks putih di atas hot pink hanya 3.55:1 (gagal AA utk teks kecil).
+   Hitam di atas pink = 5.55:1 (lolos) dan lebih neobrutalist. */
+.btn-primary, .pl-link-strong, .btn-primary:hover,
+.pl-link-strong:hover{ color: var(--ink) !important; }
+.btn-primary svg{ color: var(--ink); }
+
+
+/* ═══════════ BLOK KODE: isyarat bisa digeser ═══════════
+   Blok kode lebih lebar dari layar; beri bayangan tepi supaya user
+   tahu isinya bisa di-scroll (bukan terpotong). */
+@media (max-width:767px){
+  .code-block{
+    background-image: linear-gradient(90deg, transparent 88%, rgba(10,10,10,.10));
+    background-repeat: no-repeat;
+    background-size: 26px 100%;
+    background-position: right;
+  }
+  .code-block::-webkit-scrollbar{ height:6px; }
+  .code-block::-webkit-scrollbar-thumb{ background: var(--ink); }
+}

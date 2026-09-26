@@ -9,7 +9,7 @@
   display:grid; gap:16px;
   margin-top:clamp(30px,4.4vw,52px);
   padding-top:clamp(20px,2.8vw,28px);
-  border-top:var(--bw) solid var(--line-soft);
+  border-top:var(--bw) solid var(--ink);
 }
 .spec-lead{
   max-width:56ch;
@@ -43,28 +43,28 @@
 .about-list{ border-top:var(--bw) solid var(--line); }
 .about-list li{
   display:grid; grid-template-columns:32px minmax(0,1fr); gap:16px;
-  padding:clamp(18px,2.6vw,24px) 0;
+  padding:clamp(13px,2vw,17px) 0;
   border-bottom:var(--bw) solid var(--line);
   transition:background .2s var(--ease);
 }
-.about-list li:hover{ background:rgba(245,243,238,.035); }
+.about-list li:hover{ background:rgba(10,10,10,.045); }
 .al-n{ color:var(--accent); font-size:.86rem; font-weight:700; padding-top:4px; }
-.about-list h3{ font-size:1.1rem; font-weight:700; margin-bottom:6px; letter-spacing:-.02em; }
+.about-list h3{ font-size:1.02rem; font-weight:700; margin-bottom:6px; letter-spacing:-.02em; }
 .about-list p{ font-size:.94rem; line-height:1.55; color:var(--ink-dim); }
 
 /* ── projects: daftar, bukan grid kartu ───────────────────── */
-.proj-head{ display:grid; gap:12px; margin-bottom:clamp(28px,4.6vw,46px); }
+.proj-head{ display:grid; gap:10px; margin-bottom:clamp(20px,3vw,32px); }
 .proj-title{
-  font-size:clamp(2rem,6vw,4.4rem);
+  font-size:clamp(1.75rem,5.2vw,3.6rem);
   font-weight:800; line-height:.9; letter-spacing:-.05em;
 }
 .proj-title .amp{ color:var(--accent); }
 .proj-sub{ color:var(--ink-dim); font-size:1.02rem; }
 
-.proj-list{ border-top:var(--bw) solid var(--line); }
+.proj-list{ border-top:var(--bw) solid var(--ink); }
 .pl-row{
   display:grid; gap:12px;
-  padding:clamp(22px,3.6vw,32px) 0;
+  padding:clamp(16px,2.4vw,22px) 0;
   border-bottom:var(--bw) solid var(--line);
   position:relative;
   transition:background .2s var(--ease), padding-left .24s var(--ease);
@@ -162,11 +162,11 @@
 .pl-kicker{ margin:0; }
 
 /* featured: penanda tegas, bukan cuma garis */
-.pl-row-featured{
-  background:rgba(255,61,104,.06);
-  border-left:6px solid var(--accent);
-  padding-left:20px;
-}
+/* Featured: blok acid penuh. TANPA border-left / padding tambahan —
+   keduanya menggeser nomor sehingga tidak sejajar (bug lama). */
+.pl-row-featured{ background:var(--acid); }
+.pl-row-featured .pl-desc,
+.pl-row-featured .pl-meta{ color:var(--ink-2); }
 .pl-row-featured .pl-title{ font-size:clamp(1.5rem,5vw,2.1rem); }
 
 /* slot kosong: jangan terlihat seperti disabled */
