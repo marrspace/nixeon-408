@@ -103,12 +103,46 @@
           st.line += 1; st.ch = 0;
           tl.to({}, { duration: 0.34, onComplete: typeNext });
         } else {
-          renderLine(LINES.length, 0, false);
-          var all2 = '';
-          LINES.forEach(function (LL) {
-            all2 += '<span class="' + LL.c + '">' + LL.t + '</span>' + LL.rest + '\n';
-          });
-          termBody.innerHTML = all2;
+          /* Selesai mengetik: JANGAN berhenti. Sesi dijaga tetap "hidup" —
+             baris terakhir terus berganti (instruksi nyata, bukan klaim angka). */
+          var LIVE = [
+            'ketik !join buat masuk grup',
+            'ketik !repo buat lihat source',
+            'tanya apa saja — dibantu bareng'
+          ];
+          var li = 0;
+          var loopTL = gsap.timeline();
+
+          var renderLive = function (upto) {
+            var html = '';
+            for (var k = 0; k < LINES.length - 1; k++) {
+              var L3 = LINES[k];
+              html += '<span class="' + L3.c + '">' + L3.t + '</span>' + L3.rest + '\n';
+            }
+            html += '<span class="t-dim">' + LIVE[li].slice(0, upto) + caretEl + '</span>';
+            termBody.innerHTML = html;
+          };
+
+          var typeLive = function () {
+            var txt = LIVE[li];
+            var c = 0;
+            var stepLive = function () {
+              c += 1;
+              renderLive(c);
+              if (c < txt.length) {
+                loopTL.to({}, { duration: 0.03, onComplete: stepLive });
+              } else {
+                loopTL.to({}, { duration: 2.8, onComplete: function () {
+                  li = (li + 1) % LIVE.length;
+                  typeLive();
+                } });
+              }
+            };
+            stepLive();
+          };
+
+          renderLive(0);
+          typeLive();
         }
       };
       typeNext();
@@ -175,6 +209,11 @@
 
     gsap.fromTo('.hero-term', { opacity: 0, y: 22 },
       { opacity: 1, y: 0, duration: 0.8, ease: EASE.emph, delay: 0.2 });
+
+    /* spec-line ada di dalam hero, jadi tidak ikut loop ScrollTrigger.
+       Tanpa ini dia tetap opacity:0 -> teks hilang. */
+    gsap.fromTo('.spec-line', { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: DUR.follow, ease: EASE.enter, delay: 0.9 });
   }
 
   /* ═══════════════ 5. SETTLE: reveal per-section ════════════ */
@@ -199,6 +238,12 @@
 
       var children = (kind === 'list') ? el.children : null;
       var targets = children && children.length ? children : el;
+
+      /* PENTING: CSS menyembunyikan WADAH-nya. Kalau kita hanya
+         menganimasikan anak, wadah tetap opacity:0 dan isinya tidak
+         pernah terlihat. Jadi wadah selalu dibuka eksplisit. */
+      gsap.set(el, { opacity: 1 });
+      if (targets !== el) { gsap.set(targets, { opacity: 0 }); }
 
       var from = { opacity: 0, y: r.y || 0, x: r.x || 0 };
       if (r.scale) { from.scale = r.scale; }
@@ -243,6 +288,25 @@
     }
 
     window.addEventListener('load', function () { ST.refresh(); });
+
+    /* ── PENGAMAN ────────────────────────────────────────────────
+       Bug sebelumnya: CSS menyembunyikan [data-anim] (opacity:0), tapi
+       satu elemen terlewat dari semua animasi -> teksnya hilang permanen.
+       Apa pun yang masih tersembunyi setelah semua animasi selesai
+       dipaksa tampil. Lebih baik tanpa animasi daripada tanpa konten. */
+    var safety = function () {
+      doc.querySelectorAll('[data-anim]').forEach(function (el) {
+        var cs = window.getComputedStyle(el);
+        var hidden = parseFloat(cs.opacity) < 0.05;
+        var noMotion = el.getAnimations && el.getAnimations().length === 0;
+        if (hidden && noMotion) {
+          gsap.set(el, { opacity: 1, x: 0, y: 0, scale: 1, clearProps: 'transform' });
+          el.style.opacity = '1';
+        }
+      });
+    };
+    setTimeout(safety, 2500);
+    window.addEventListener('load', function () { setTimeout(safety, 1200); });
   } else if (reduced) {
     /* reduced motion: pastikan semua terlihat */
     doc.querySelectorAll('[data-anim]').forEach(function (el) {

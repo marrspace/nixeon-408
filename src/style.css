@@ -19,8 +19,6 @@
   --accent:      #FF3D68;
   --accent-dim:  rgba(255,61,104,.13);
   --accent-line: rgba(255,61,104,.32);
-  --cyan:        #4DD9E8;
-  --ok:          #57D68A;
 
   --f-display: "Space Grotesk", system-ui, sans-serif;
   --f-serif:   "Instrument Serif", Georgia, serif;
@@ -68,13 +66,13 @@ p{ margin:0; }
 .hl-mono{
   font-family:var(--f-mono);
   font-size:.88em;
-  color:var(--cyan);
-  background:rgba(77,217,232,.09);
+  color:var(--accent);
+  background:var(--accent-dim);
   padding:.12em .46em;
   border-radius:5px;
   white-space:nowrap;
 }
-.ok{ color:var(--ok); }
+.ok{ color:var(--accent); }
 
 .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
 
@@ -179,7 +177,7 @@ p{ margin:0; }
   margin-bottom:clamp(18px,2.4vw,26px);
 }
 .dot-live{
-  width:6px; height:6px; border-radius:50%; background:var(--ok); flex:none;
+  width:6px; height:6px; border-radius:50%; background:var(--accent); flex:none;
   box-shadow:0 0 0 3px rgba(87,214,138,.16);
   animation:pulse 2.6s ease-in-out infinite;
 }
@@ -286,12 +284,14 @@ p{ margin:0; }
   overflow-x:auto; -webkit-overflow-scrolling:touch;
   white-space:pre;
 }
-.c-key { color:#FF7BA3; }
-.c-str { color:#8FD8A8; }
-.c-fn  { color:#7CC7F0; }
-.c-prop{ color:#D6C79A; }
-.c-bool{ color:#C79AE0; }
-.c-num { color:#E0A87C; }
+/* Syntax: hemat warna. Hanya aksen + dua tint netral.
+   Enam hue pelangi = tanda template, bukan keputusan desain. */
+.c-key { color:var(--accent); }
+.c-str { color:var(--ink-dim); }
+.c-fn  { color:var(--ink); }
+.c-prop{ color:var(--ink-dim); }
+.c-bool{ color:var(--accent); }
+.c-num { color:var(--ink-dim); }
 .c-com { color:var(--ink-faint); font-style:italic; }
 
 /* ═══════════ GABUNG ═══════════ */
@@ -463,7 +463,7 @@ html{
 /* Garis scan HUD bergerak pelan (kalau .art-hud ada) */
 .art-hud::after{
   content:""; position:absolute; left:0; right:0; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(77,217,232,.55),transparent);
+  background:linear-gradient(90deg,transparent,rgba(255,61,104,.42),transparent);
   animation:hud-scan 5.5s ease-in-out infinite;
   opacity:.5;
 }

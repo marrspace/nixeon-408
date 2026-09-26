@@ -8,7 +8,7 @@
 .scroll-progress{
   position:fixed; top:0; left:0; right:0; height:2px;
   transform-origin:0 50%; transform:scaleX(0);
-  background:linear-gradient(90deg, var(--accent), var(--cyan));
+  background:var(--accent);
   z-index:120; pointer-events:none;
 }
 
@@ -30,22 +30,40 @@
   box-shadow:0 24px 60px -30px rgba(0,0,0,.9);
 }
 .term-bar{
-  display:flex; align-items:center; gap:7px;
-  padding:11px 14px;
+  display:flex; align-items:center; gap:8px;
+  padding:13px 16px;
   border-bottom:1px solid rgba(255,255,255,.09);
   background:rgba(255,255,255,.022);
 }
-.term-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.16); }
-.term-dot:first-child{ background:rgba(255,61,104,.75); }
-.term-title{ margin-left:auto; font-size:.66rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase; }
+.term-id{ font-size:.66rem; letter-spacing:.16em; color:var(--ink-dim); text-transform:uppercase; }
+.term-sep{
+  width:1px; height:11px; flex:none;
+  background:rgba(255,255,255,.16);
+}
+.term-state{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent);
+}
+.term-live{
+  width:6px; height:6px; border-radius:50%; flex:none;
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(255,61,104,.14);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.term-title{
+  margin-left:auto; min-width:0;              /* boleh menyusut, tidak terpotong */
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  font-size:.66rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;
+}
 .term-body{
-  margin:0; padding:16px 16px 18px;
+  margin:0; padding:16px;
   font-size:.78rem; line-height:1.85; color:var(--ink-dim);
-  min-height:186px; white-space:pre-wrap; word-break:break-word;
+  min-height:172px; white-space:pre-wrap; word-break:break-word;
 }
 .term-body .t-prompt{ color:var(--accent); }
-.term-body .t-ok{ color:var(--ok); }
-.term-body .t-arrow{ color:var(--cyan); }
+.term-body .t-ok{ color:var(--ink); }
+.term-body .t-arrow{ color:var(--accent); }
 .term-body .t-dim{ color:var(--ink-faint); }
 .term-caret{
   display:inline-block; width:8px; height:1em; vertical-align:-.14em;
