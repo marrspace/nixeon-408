@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="src/style.css" />
 <link rel="stylesheet" href="src/parts/motion.css" />
 <link rel="stylesheet" href="src/parts/editorial.css" />
@@ -65,7 +65,7 @@
         </h1>
 
         <p class="hero-lede" data-anim="lede">
-          Portfolio komunitas <strong>JawaSkrip&nbsp;⚙️</strong> — tempat belajar bikin bot WhatsApp
+          Portfolio komunitas <strong>JawaSkrip</strong> <span class="glyph-box" aria-hidden="true">⚙</span> — tempat belajar bikin bot WhatsApp
           pakai <span class="hl-mono">Baileys</span>, ngulik AI, dan bikin tools
           yang beneran dipakai orang. Bukan tempat jualan kelas.
         </p>
@@ -119,7 +119,7 @@
   </section>
 
   <!-- ══════════════ TENTANG ══════════════ -->
-  <section class="section" id="tentang">
+  <section class="section section-inv" id="tentang">
     <div class="wrap about-wrap">
 
       <div class="about-aside" data-anim="slide-left">
@@ -184,7 +184,10 @@
       <div class="proj-list" data-anim="list">
 
         <article class="pl-row pl-row-featured">
-          <p class="pl-kicker mono">01 / featured / baileys</p>
+          <div class="pl-head">
+            <span class="pl-num mono">01</span>
+            <span class="pl-kicker mono">featured / baileys</span>
+          </div>
           <h3 class="pl-title">Yowtech / Base</h3>
           <p class="pl-desc">
             Base Baileys tingkat lanjut — fondasi bot WhatsApp yang rapi, siap
@@ -199,7 +202,10 @@
         </article>
 
         <article class="pl-row">
-          <p class="pl-kicker mono">02 / tools</p>
+          <div class="pl-head">
+            <span class="pl-num mono">02</span>
+            <span class="pl-kicker mono">tools</span>
+          </div>
           <h3 class="pl-title">Sticker &amp; Media Kit</h3>
           <p class="pl-desc">
             Kumpulan command harian: bikin sticker dari gambar, ambil audio,
@@ -212,7 +218,10 @@
         </article>
 
         <article class="pl-row">
-          <p class="pl-kicker mono">03 / ai</p>
+          <div class="pl-head">
+            <span class="pl-num mono">03</span>
+            <span class="pl-kicker mono">ai</span>
+          </div>
           <h3 class="pl-title">Auto-reply Pintar</h3>
           <p class="pl-desc">
             Bot yang jawab sesuai konteks percakapan — bukan template kaku.
@@ -225,7 +234,10 @@
         </article>
 
         <article class="pl-row pl-row-open">
-          <p class="pl-kicker mono">04 / slot kosong</p>
+          <div class="pl-head">
+            <span class="pl-num mono">04</span>
+            <span class="pl-kicker mono">slot kosong</span>
+          </div>
           <h3 class="pl-title">Project kamu</h3>
           <p class="pl-desc">
             Ini tempatnya. Bikin apa saja — bot receh, script iseng, tool serius —

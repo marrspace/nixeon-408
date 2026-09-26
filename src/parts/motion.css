@@ -1,135 +1,34 @@
-/* ═══════════════════════════════════════════════════════════════
-   MOTION & TERMINAL — nixeon://408
-   Prinsip: transform + opacity saja (tidak menyentuh layout).
-   Konten terlihat tanpa JS; animasi hanya "menambah".
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   MOTION — NEOBRUTALISM
+   Semua komponen visual ada di style.css / editorial.css.
+   File ini HANYA berisi keadaan animasi.
+   ═══════════════════════════════════════════════════════════ */
 
-/* ── scroll progress (satu elemen, bukan dekorasi) ─────────── */
+/* Scroll progress: bar keras di atas */
 .scroll-progress{
-  position:fixed; top:0; left:0; right:0; height:2px;
-  transform-origin:0 50%; transform:scaleX(0);
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:4px;
   background:var(--accent);
-  z-index:120; pointer-events:none;
+  transform:scaleX(0); transform-origin:0 50%;
+  pointer-events:none;
 }
 
-/* ── kursor berkedip (isyarat "live") ─────────────────────── */
-.caret{
-  display:inline-block; width:7px; height:1em;
-  background:var(--accent); vertical-align:-.14em;
-  margin-left:5px;
-  animation:caret-blink 1.1s steps(1) infinite;
-}
-@keyframes caret-blink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
-
-/* ── terminal: elemen khas komunitas bot ──────────────────── */
-.hero-term{
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:var(--r);
-  background:linear-gradient(170deg, rgba(19,19,24,.92), rgba(10,10,12,.92));
-  overflow:hidden;
-  box-shadow:0 24px 60px -30px rgba(0,0,0,.9);
-}
-.term-bar{
-  display:flex; align-items:center; gap:8px;
-  padding:13px 16px;
-  border-bottom:1px solid rgba(255,255,255,.09);
-  background:rgba(255,255,255,.022);
-}
-.term-id{ font-size:.66rem; letter-spacing:.16em; color:var(--ink-dim); text-transform:uppercase; }
-.term-sep{
-  width:1px; height:11px; flex:none;
-  background:rgba(255,255,255,.16);
-}
-.term-state{
-  display:inline-flex; align-items:center; gap:6px;
-  font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--accent);
-}
-.term-live{
-  width:6px; height:6px; border-radius:50%; flex:none;
-  background:var(--accent);
-  box-shadow:0 0 0 3px rgba(255,61,104,.14);
-  animation:pulse 2.4s ease-in-out infinite;
-}
-.term-title{
-  margin-left:auto; min-width:0;              /* boleh menyusut, tidak terpotong */
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-  font-size:.66rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;
-}
-.term-body{
-  margin:0; padding:16px;
-  font-size:.78rem; line-height:1.85; color:var(--ink-dim);
-  min-height:172px; white-space:pre-wrap; word-break:break-word;
-}
-.term-body .t-prompt{ color:var(--accent); }
-.term-body .t-ok{ color:var(--ink); }
-.term-body .t-arrow{ color:var(--accent); }
-.term-body .t-dim{ color:var(--ink-faint); }
-.term-caret{
-  display:inline-block; width:8px; height:1em; vertical-align:-.14em;
-  background:var(--accent); animation:caret-blink 1s steps(1) infinite;
-}
-
-/* ── keadaan awal animasi: HANYA kalau JS aktif ────────────
+/* Keadaan awal animasi: HANYA kalau JS aktif.
    Tanpa kelas .js-motion, konten tampil normal (aman tanpa JS). */
 .js-motion [data-anim]{ opacity:0; }
-.js-motion .caret{ opacity:0; }
+.js-motion .caret,
+.js-motion .term-caret{ opacity:0; }
 
 /* ── reduced motion: matikan, jangan rusak ───────────────── */
 @media (prefers-reduced-motion:reduce){
-  .scroll-progress{ transform:scaleX(1) !important; opacity:.5; }
-  .caret,.term-caret{ animation:none; }
   .js-motion [data-anim]{ opacity:1 !important; transform:none !important; }
+  .js-motion .caret,
+  .js-motion .term-caret{ opacity:1 !important; animation:none; }
+  .scroll-progress{ display:none; }
+  .sc-line{ animation:none; opacity:.55; }
 }
 
 /* ── mobile: terminal lebih ringkas ──────────────────────── */
 @media (max-width:719px){
   .term-body{ min-height:0; font-size:.74rem; padding:14px; }
-}
-
-/* ── kaki hero: fakta + isyarat gulir ───────────────────────
-   Mengisi bagian bawah hero supaya layar tidak setengah kosong. */
-.hero-foot{
-  display:flex; align-items:flex-end; justify-content:space-between;
-  gap:clamp(20px,4vw,48px);
-  margin-top:clamp(30px,6vh,60px);    /* jarak terkontrol, bukan celah besar */
-  padding-top:clamp(24px,4vh,44px);
-}
-.hero-foot .hero-facts{
-  display:grid; gap:8px;
-  margin:0; padding:0; list-style:none;
-  border-top:1px solid var(--line);
-  padding-top:clamp(16px,2.4vh,22px);
-  flex:1 1 auto; max-width:66ch;
-}
-.hero-foot .hero-facts li{
-  display:flex; gap:11px; align-items:baseline;
-  font-size:.86rem; color:var(--ink-dim);
-}
-.hero-foot .hero-facts .mono{ color:var(--accent); flex:none; }
-
-.scroll-cue{
-  display:flex; flex-direction:column; align-items:center; gap:9px;
-  flex:none; padding-bottom:4px;
-}
-.sc-text{ font-size:.6rem; letter-spacing:.24em; color:var(--ink-faint); text-transform:uppercase; }
-.sc-line{
-  flex:none; width:1px; height:46px;
-  background:linear-gradient(180deg, var(--accent), transparent);
-  transform-origin:top;
-  animation:sc-travel 2.1s cubic-bezier(.6,0,.35,1) infinite;
-}
-@keyframes sc-travel{
-  0%   { transform:scaleY(0); opacity:0; }
-  35%  { transform:scaleY(1); opacity:1; }
-  100% { transform:scaleY(1) translateY(46px); opacity:0; }
-}
-
-@media (max-width:719px){
-  .hero-foot{ flex-direction:column; align-items:stretch; gap:22px; }
-  .scroll-cue{ align-items:flex-start; }
-  .sc-line{ height:32px; }
-}
-@media (prefers-reduced-motion:reduce){
-  .sc-line{ animation:none; transform:scaleY(1); opacity:.55; }
 }
